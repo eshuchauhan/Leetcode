@@ -1,0 +1,22 @@
+442-> https://leetcode.com/problems/find-all-duplicates-in-an-array/
+
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& a) {
+        int n=a.size(),i;
+        vector<int>v;
+        for(i=0;i<n;i++)
+        {
+            int x=abs(a[i])-1;
+            if(a[x]<0)
+            {
+                v.push_back(x+1);
+            }
+            else
+            {
+                a[x]=-a[x];
+            }
+        }
+        return v;
+    }
+};
